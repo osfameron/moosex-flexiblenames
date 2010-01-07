@@ -8,7 +8,7 @@ use lib "$Bin/lib";
 
 package TestData;
 use Moose;
-with 'MooseX::FlexibleNames';
+use MooseX::FlexibleNames;
 use Moose::Util::TypeConstraints;
 
 coerce 'Bool',
