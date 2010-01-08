@@ -89,6 +89,10 @@ You can also call
 
    (C)  osfameron 2010, <osfameron@cpan.org>
 
+Contributions from 
+
+    doy (Jesse Luehrs)
+
 For support, try emailing me, or grabbing me on irc #london.pm or #moose
 on irc.perl.org
 
