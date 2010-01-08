@@ -6,7 +6,6 @@ name        'MooseX-FlexibleNames';
 all_from    'lib/MooseX/FlexibleNames.pm';
 
 requires 'Moose';
-requires 'MooseX::Types';
 
 license     'perl';
 author      'osfameron';
