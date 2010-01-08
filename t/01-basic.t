@@ -23,7 +23,6 @@ has foo => (
     is     => 'rw',
     isa    => 'Bool',
     coerce => 1,
-    traits => ['FlexibleNames'],
     matcher => qr/foo/i,
 );
 
