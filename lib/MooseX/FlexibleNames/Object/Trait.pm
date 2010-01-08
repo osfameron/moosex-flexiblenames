@@ -34,38 +34,10 @@ has fallback => (
     },
 );
 
-has _flexible_fields => (
-    is  => 'ro',
-    isa => 'ArrayRef', # of attributes?
-    traits => ['Array'],
-    handles => {
-        first_flexible_field => 'first',
-    },
-    lazy => 1,
-    default => sub {
-        my $self = shift;
-        my @attributes = 
-            sort {
-                $a->meta->insertion_order
-                    <=>
-                $b->meta->insertion_order
-            }
-            grep {
-                $_->has_matcher
-            }
-            grep { 
-                $_->meta->does_role('MooseX::FlexibleNames::Attribute::Trait')
-            } 
-            $self->meta->get_all_attributes;
-
-        \@attributes;
-    },
-);
-
 sub set_flexibly {
     my ($self, $name, $value) = @_;
 
-    my $field = $self->first_flexible_field( sub { 
+    my $field = $self->meta->first_flexible_field( sub { 
         my $matcher = $_->matcher;
         $name ~~ $matcher;
     } );

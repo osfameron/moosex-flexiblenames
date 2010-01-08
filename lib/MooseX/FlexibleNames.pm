@@ -26,6 +26,8 @@ use Moose ();
 use Moose::Exporter;
 
 Moose::Exporter->setup_import_methods(
+    metaclass_roles 
+        => ['MooseX::FlexibleNames::Metaclass::Trait'],
     attribute_metaclass_roles 
         => ['MooseX::FlexibleNames::Attribute::Trait'],
     base_class_roles  

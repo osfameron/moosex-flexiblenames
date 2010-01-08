@@ -35,7 +35,6 @@ $x->set_flexibly( 'BAR' => 'true' );
 
 cmp_deeply($x,
     (bless {
-        _flexible_fields => ignore(),
         foo => 1, # coerced name and value
         fallback => {
             BAR => 'true', # no coercion for fallback
