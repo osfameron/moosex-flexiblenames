@@ -34,9 +34,9 @@ has flexible_fields => (
         my $self = shift;
         my @attributes = 
             sort {
-                $a->meta->insertion_order
+                $a->insertion_order
                     <=>
-                $b->meta->insertion_order
+                $b->insertion_order
             }
             grep {
                 $_->has_matcher
