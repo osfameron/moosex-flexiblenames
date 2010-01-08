@@ -27,6 +27,7 @@ has fallback => (
     is  => 'ro',
     isa => 'HashRef',
     traits => ['Hash'],
+    lazy => 1,
     default => sub { {} },
     handles => {
         set_fallback_data => 'set',

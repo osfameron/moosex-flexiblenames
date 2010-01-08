@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 use strict; use warnings;
-use Test::More tests => 1;
+use Test::More tests => 2;
 use FindBin '$Bin';
 
 use lib "$Bin/lib";
@@ -31,6 +31,13 @@ use Test::Deep;
 
 my $x = TestData->new;
 $x->set_flexibly( 'FOO' => 'true' );
+
+cmp_deeply($x,
+    (bless {
+        foo => 1, # coerced name and value
+    }, 'TestData'),
+    'Set coerced flexible value OK' );
+
 $x->set_flexibly( 'BAR' => 'true' );
 
 cmp_deeply($x,
@@ -40,5 +47,5 @@ cmp_deeply($x,
             BAR => 'true', # no coercion for fallback
         },
     }, 'TestData'),
-    'Data OK' );
+    'Set fallback value OK' );
 
